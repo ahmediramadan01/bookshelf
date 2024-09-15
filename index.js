@@ -55,15 +55,41 @@ const addBook = function (event) {
 	const bookAuthor = bookAuthorElement.value;
 	const bookPages = bookPagesElement.value;
 	const bookStatus = bookStatusElement.value;
-	const bookId = String(Date.now()).slice(-10);
-	const book = new Book(bookId, bookTitle, bookAuthor, bookPages, bookStatus);
-	book.addBookToLibrary();
+
+	const editingBookId = bookFormElement.dataset.editingBookId;
+	if (editingBookId) {
+		const book = booksLibrary.find((b) => b.id === editingBookId);
+		book.title = bookTitle;
+		book.author = bookAuthor;
+		book.pages = bookPages;
+		book.status = bookStatus;
+		bookFormElement.removeAttribute("data-editing-book-id");
+	} else {
+		const bookId = String(Date.now()).slice(-10);
+		const book = new Book(bookId, bookTitle, bookAuthor, bookPages, bookStatus);
+		book.addBookToLibrary();
+	}
 
 	dialogElement.close();
 	bookTitleElement.value = bookAuthorElement.value = bookPagesElement.value = "";
 	bookStatusElement.value = "want";
 
 	renderLibrary();
+};
+
+const editBook = function (event) {
+	if (event.target.closest(".button--edit")) {
+		const bookElement = event.target.closest(".book");
+		const book = booksLibrary.find((b) => b.id === bookElement.dataset.id);
+
+		bookTitleElement.value = book.title;
+		bookAuthorElement.value = book.author;
+		bookPagesElement.value = book.pages;
+		bookStatusElement.value = book.status;
+		bookFormElement.dataset.editingBookId = book.id;
+
+		dialogElement.showModal();
+	}
 };
 
 openDialogButtonElement.addEventListener("click", () => {
@@ -73,3 +99,4 @@ closeDialogButtonElement.addEventListener("click", () => {
 	dialogElement.close();
 });
 bookFormElement.addEventListener("submit", addBook);
+booksContainerElement.addEventListener("click", editBook);
