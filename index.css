@@ -90,3 +90,73 @@ body {
 	width: 2.2rem;
 	height: 2.2rem;
 }
+
+.dialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 60rem;
+	background-color: #f3f3f3;
+	padding: 4rem 6rem;
+	box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
+	z-index: 100;
+
+	border-radius: 0.5rem;
+	-webkit-border-radius: 0.5rem;
+	-moz-border-radius: 0.5rem;
+	-ms-border-radius: 0.5rem;
+	-o-border-radius: 0.5rem;
+
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+}
+
+.dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.button--close {
+	font-family: inherit;
+	color: #303030;
+	position: absolute;
+	top: 0.5rem;
+	right: 2rem;
+	font-size: 4rem;
+}
+
+.form__heading {
+	font-size: 2.4rem;
+	margin-bottom: 3.2rem;
+}
+
+fieldset {
+	border: none;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	align-items: center;
+	gap: 2.5rem;
+}
+
+.form label {
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
+.form input,
+.form select {
+	font-size: 1.8rem;
+	padding: 1.2rem;
+	border: 0.1rem solid #ddd;
+	border-radius: 0.5rem;
+}
+
+.button--add {
+	margin: 2rem auto 0;
+	font-size: 1.8rem;
+	background-color: #55c875;
+	padding: 1.1rem 1.5rem 1.1rem;
+}

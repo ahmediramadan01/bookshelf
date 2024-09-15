@@ -21,6 +21,34 @@
 					<img src="./images/open.svg" alt="Open icon" class="open-icon" /><span>Add Book</span>
 				</button>
 			</header>
+			<main class="main">
+				<dialog class="dialog" open>
+					<button class="button button--close">&times;</button>
+
+					<form class="form">
+						<legend class="form__heading">Add a book to your library</legend>
+
+						<fieldset>
+							<label for="title">Title:</label>
+							<input id="title" name="title" type="text" minlength="1" required autofocus />
+
+							<label for="author">Author:</label>
+							<input id="author" name="author" type="text" minlength="1" required />
+
+							<label for="pages">Pages:</label>
+							<input id="pages" name="pages" type="number" min="1" required />
+
+							<label for="status">Status:</label>
+							<select id="status" name="status" required>
+								<option id="want" value="want">Want to read</option>
+								<option id="read" value="read">Read</option>
+							</select>
+						</fieldset>
+
+						<button class="button button--add" type="submit">Add</button>
+					</form>
+				</dialog>
+			</main>
 		</div>
 	</body>
 </html>
