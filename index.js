@@ -92,6 +92,16 @@ const editBook = function (event) {
 	}
 };
 
+const removeBook = function (event) {
+	if (!event.target.closest(".button--remove")) return;
+
+	const bookElement = event.target.closest(".book");
+	const book = booksLibrary.find((book) => book.id === bookElement.dataset.id);
+	booksLibrary.splice(booksLibrary.indexOf(book), 1);
+
+	renderLibrary();
+};
+
 openDialogButtonElement.addEventListener("click", () => {
 	dialogElement.showModal();
 });
@@ -100,3 +110,4 @@ closeDialogButtonElement.addEventListener("click", () => {
 });
 bookFormElement.addEventListener("submit", addBook);
 booksContainerElement.addEventListener("click", editBook);
+booksContainerElement.addEventListener("click", removeBook);
