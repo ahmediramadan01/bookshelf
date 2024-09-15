@@ -109,14 +109,22 @@ const removeBook = function (event) {
 	renderLibrary();
 };
 
+const closeDialog = function () {
+	dialogElement.close();
+	bookTitleElement.value =
+		bookAuthorElement.value =
+		bookPagesElement.value =
+		bookFormElement.dataset.editingBookId =
+			"";
+	bookStatusElement.value = "want";
+};
+
 // Event Listeners
 
 openDialogButtonElement.addEventListener("click", () => {
 	dialogElement.showModal();
 });
-closeDialogButtonElement.addEventListener("click", () => {
-	dialogElement.close();
-});
+closeDialogButtonElement.addEventListener("click", closeDialog);
 bookFormElement.addEventListener("submit", addBook);
 booksContainerElement.addEventListener("click", editBook);
 booksContainerElement.addEventListener("click", removeBook);
