@@ -264,9 +264,13 @@ fieldset {
 	}
 
 	.button--open {
-		padding: 0.8rem 1.2rem 0.8rem 0.6rem;
+		padding: 0.9rem;
 		gap: 0.6rem;
 		content: "";
+	}
+
+	.button--open span {
+		display: none;
 	}
 
 	.dialog {
