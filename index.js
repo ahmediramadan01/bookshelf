@@ -1,5 +1,7 @@
 "use strict";
 
+// DOM Elements
+
 const dialogElement = document.querySelector(".dialog");
 const openDialogButtonElement = document.querySelector(".button--open");
 const closeDialogButtonElement = document.querySelector(".button--close");
@@ -10,8 +12,11 @@ const bookAuthorElement = document.querySelector("#author");
 const bookPagesElement = document.querySelector("#pages");
 const bookStatusElement = document.querySelector("#status");
 
+// Global Variable
+
 let booksLibrary = [];
 
+// Book Constructor Function
 const Book = function (id, title, author, pages, status) {
 	this.id = id;
 	this.title = title;
@@ -23,6 +28,8 @@ const Book = function (id, title, author, pages, status) {
 Book.prototype.addBookToLibrary = function () {
 	booksLibrary.push(this);
 };
+
+// Helper Functions
 
 const renderLibrary = function () {
 	booksContainerElement.innerHTML = "";
@@ -101,6 +108,8 @@ const removeBook = function (event) {
 
 	renderLibrary();
 };
+
+// Event Listeners
 
 openDialogButtonElement.addEventListener("click", () => {
 	dialogElement.showModal();

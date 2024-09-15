@@ -1,3 +1,5 @@
+/* General Styles */
+
 * {
 	padding: 0;
 	margin: 0;
@@ -17,6 +19,8 @@ body {
 	max-width: 128rem;
 	margin: 0 auto;
 }
+
+/* Header Styles */
 
 .header {
 	display: flex;
@@ -91,6 +95,8 @@ body {
 	height: 2.2rem;
 }
 
+/* Dialog Form Styles */
+
 .dialog {
 	position: fixed;
 	top: 50%;
@@ -160,6 +166,8 @@ fieldset {
 	background-color: #55c875;
 	padding: 1.1rem 1.5rem 1.1rem;
 }
+
+/* Book Styles */
 
 .books {
 	padding: 0 3.4rem;
